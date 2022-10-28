@@ -1,13 +1,10 @@
 let counter = 1
-setInterval(()=>{
+setInterval(function(){
 
-    document.querySelector('.img.show').classList.remove('show')
-    const img = document.querySelector(`.img-${counter}`)
-    img.classList.add('show')
+    document.getElementById('radio'+counter).checked=true;
     counter++
-
     if(counter >4){
         counter = 1
     }
 
-},3000)
+},5000);
