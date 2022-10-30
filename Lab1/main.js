@@ -1,16 +1,43 @@
-const liczba1 = document.querySelector('#liczba1')
-const liczba2 = document.querySelector('#liczba2')
-const liczba3 = document.querySelector('#liczba3')
-const liczba4 = document.querySelector('#liczba4')
 const przelicz = document.querySelector('#przelicz')
 const wynikiPojemnik = document.querySelector('#wyniki')
 
-const dodawanie = parseInt(liczba1.value)+parseInt(liczba2.value)+parseInt(liczba3.value)+parseInt(liczba4.value)
-przelicz.addEventListener('click', ()=>{
-wynikiPojemnik.innerHTML = 
-`Wynik dodawania:${dodawanie(value)}
-Średnia:${dodawanie(value)/4}
-Wynik min:${Math.min(+liczba1.value,+liczba2.value,+liczba3.value,+liczba4.value)}
-Wynik max:${Math.max(+liczba1.value,+liczba2.value,+liczba3.value,+liczba4.value)}`}
+const numInputs=document.getElementsByClassName('num')
 
-);
+function Dodaj(){
+    let div = document.createElement('div');
+    let input = document.createElement('input');
+    let button = document.createElement('button');
+    button.innerHTML="X";
+    button.addEventListener('click',(ev)=>{
+        ev.currentTarget.parentNode.remove();
+        Funkcja();
+    });
+
+    input.type='number';
+    input.value=0;
+    input.className="num";
+
+    input.addEventListener('input', Funkcja );
+    div.appendChild(input);
+    div.appendChild(button);
+
+    document.querySelector("#inputs").appendChild(div);
+    Funkcja();
+}
+function Funkcja(){ 
+    let numValues = []
+    for (let el of numInputs) {
+        numValues.push(parseInt(el.value))
+    };
+    const dodawanie = numValues.reduce((sum, val) => sum + val)
+    wynikiPojemnik.innerHTML = `   
+    Wynik dodawania: ${dodawanie}
+    Średnia:${dodawanie/numValues.length}
+    Wynik min:${Math.min(...numValues)}
+    Wynik max:${Math.max(...numValues)}
+`}
+let dodaj = document.getElementById("dodaj")
+dodaj.addEventListener('click', Dodaj );
+Dodaj();
+Dodaj();
+Dodaj();
