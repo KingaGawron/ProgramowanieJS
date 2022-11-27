@@ -1,6 +1,5 @@
 const przelicz = document.querySelector('#przelicz')
 const wynikiPojemnik = document.querySelector('#wyniki')
-
 const numInputs=document.getElementsByClassName('num')
 
 function Dodaj(){
@@ -37,7 +36,7 @@ function Funkcja(){
     Wynik max:${Math.max(...numValues)}
 `}
 let dodaj = document.getElementById("dodaj")
-dodaj.addEventListener('click', Dodaj );
+dodaj.addEventListener('click', Dodaj);
 Dodaj();
 Dodaj();
 Dodaj();
