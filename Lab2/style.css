@@ -91,3 +91,23 @@ transition: 2s;
 #radio4:checked ~ .navigation-auto .auto-btn4{
   background-color: white;
 }
+
+.left, .right{
+  position:absolute;
+  font-size: 50px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border: none;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+.left:hover, .right:hover{
+  opacity: 1;
+}
+.left{
+  left:20%;
+}
+.right{
+  right: 20%;
+}
