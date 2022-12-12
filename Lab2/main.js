@@ -1,27 +1,26 @@
-let counter = 1
-setInterval(function(){
+let counter = 1;
+setInterval(function () {
+  document.getElementById("radio" + counter).checked = true;
+  counter++;
+  if (counter > 4) {
+    counter = 1;
+  }
+}, 5000);
 
-    document.getElementById('radio'+counter).checked=true;
-    counter++;
-    if(counter > 4){
-        counter = 1
-    }
-},5000);
-
-const arrowRight = document.querySelector("right");
-const arrowLeft = document.querySelector("left");
-const img = document.querySelector("slide");
+const images = document.querySelectorAll(".slides img")
+const arrowLeft = document.querySelector(".left")
+const arrowRight = document.querySelector(".right")
+const img = document.querySelector(".slide img")
 let currentImgIndex;
-img.forEach((slide,index) => {
-    slide.addEventListener("click",() =>{
 
-        currentImgIndex=index;
-        alert(currentImgIndex);
-    });
-    
-});
-
+images.forEach((image,index) =>{
+  image.addEventListener("click",(e)=>{
+    //console.log(e.target.src)
+    image.src = e.target.src;
+    currentImgIndex=index;
+  })
+})
 arrowRight.addEventListener("click",()=>{
-    counter++;
-}
-)
+  currentImgIndex++;
+  image.src=images[currentImgIndex];
+})
