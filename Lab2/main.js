@@ -1,4 +1,8 @@
+
+const arrowRight = document.querySelector(".right")
+const arrowLeft = document.querySelector(".left")
 let counter = 1;
+
 setInterval(function () {
   document.getElementById("radio" + counter).checked = true;
   counter++;
@@ -7,22 +11,17 @@ setInterval(function () {
   }
 }, 5000);
 
-const images = document.querySelectorAll(".slides img")
-const arrowLeft = document.querySelector(".left")
-const arrowRight = document.querySelector(".right")
-const img = document.querySelector(".slide img")
-let currentImgIndex;
-
-images.forEach((image,index) =>{
-  image.addEventListener("click",(e)=>{
-   
-    image.src = e.target.src;
-    console.log(image.src)
-    currentImgIndex=index;
-  })
+  arrowRight.addEventListener("click",(e)=>{
+document.getElementById("radio" + counter).checked = true;
+  counter++;
+  if (counter > 4) {
+    counter = 1;
+  }
 })
-arrowRight.addEventListener("click",()=>{
-  currentImgIndex++;
-  image.src=images[currentImgIndex];
+  arrowLeft.addEventListener("click",(e)=>{
+document.getElementById("radio" + counter).checked = true;
+  counter--;
+  if (counter < 1 ) {
+    counter = 4;
+  }
 })
-
