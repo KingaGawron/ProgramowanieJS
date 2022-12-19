@@ -64,12 +64,12 @@ function deleteNote(noteId) {
   showNotes();
 }
 
-function updateNote(noteId, title, desc) {
+function updateNote(noteId, titles, descr) {
   isUpdate = true;
   updateId = noteId;
   addBox.click();
-  title.value = title;
-  desc.value = desc;
+  title.value = titles;
+  desc.value = descr;
   addBtn.innerText = "Update Note";
   popupTitle.innerText = "Update a Note";
 }
