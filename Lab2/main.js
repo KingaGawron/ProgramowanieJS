@@ -15,8 +15,9 @@ let currentImgIndex;
 
 images.forEach((image,index) =>{
   image.addEventListener("click",(e)=>{
-    //console.log(e.target.src)
+   
     image.src = e.target.src;
+    console.log(image.src)
     currentImgIndex=index;
   })
 })
@@ -24,3 +25,4 @@ arrowRight.addEventListener("click",()=>{
   currentImgIndex++;
   image.src=images[currentImgIndex];
 })
+
