@@ -150,3 +150,31 @@ button{
     height: 30px;
     border-radius: 10px;
 }
+.colorNote{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.colorNote div{
+  width: 20px;
+  height: 20px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  border-radius: 100%;
+  cursor:pointer;
+}
+.red{
+  background-color: red;
+}
+.orange{
+  background-color: orange;
+}
+.purple{
+background-color: purple;
+}
+.blue{
+background-color: blue;
+}
+.green{
+background-color: green;
+}
