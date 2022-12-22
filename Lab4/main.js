@@ -22,10 +22,9 @@ const months = [
   "November",
   "December",
 ];
-const notes = JSON.parse(localStorage.getItem("notes") || "[]");
+let notes = JSON.parse(localStorage.getItem("notes") || "[]");
 let isUpdate = false,
   updateId;
-
 addBox.addEventListener("click", () => {
   title.focus();
   popupBox.classList.add("show");
@@ -44,6 +43,7 @@ function showNotes() {
   notes.forEach((note, index) => {
     let liTag = `<li class="note">
                     <div class="details">
+                    <button onclick="pinNote(${index})">Pin</button>
                     <p>${note.title}</p>
                     <span>${note.description}</span>
                     </div>
@@ -102,3 +102,12 @@ addBtn.addEventListener("click", (e) => {
     showNotes();
   }
 });
+function pinNote(index) {
+  let note = notes[index];
+
+  note.pinned = !note.pinned;
+
+  let pinnedNotes = notes.filter(n => n.pinned);
+  let otherNotes = notes.filter(n => !n.pinned);
+  notes = [...pinnedNotes, ...otherNotes];
+}
