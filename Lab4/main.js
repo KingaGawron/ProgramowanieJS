@@ -102,6 +102,7 @@ addBtn.addEventListener("click", (e) => {
     showNotes();
   }
 });
+/*
 function pinNote(index) {
   let note = notes[index];
 
@@ -110,4 +111,42 @@ function pinNote(index) {
   let pinnedNotes = notes.filter(n => n.pinned);
   let otherNotes = notes.filter(n => !n.pinned);
   notes = [...pinnedNotes, ...otherNotes];
+  renderNotes();
 }
+/*let notesListElement = document.querySelector('.notes-list');
+  notesListElement.innerHTML = '';
+  notesListElement.innerHTML = '';
+
+  // Stworzyć nowe elementy HTML dla notatek i wstawić je do elementu HTML listy notatek
+  let html = '';
+  notes.forEach((note, index) => {
+    html += createNoteElement(note, index);
+  });
+  notesList
+
+function renderNotes() {
+  let html = "";
+  for (let i = 0; i < notes.length; i++) {
+    let note = notes[i];
+    html += `<li class="note">
+                <div class="details">
+                  <p>${note.title}</p>
+                  <span>${note.description}</span>
+                </div>
+                <div class="bottom-content">
+                  <span>${note.date}</span>
+                </div>
+                <div class="buttons">
+                  <button onclick="deleteNote(${i})">Delete</button>
+                  <button onclick="updateNote(${i},'${note.title}','${note.description}')">Edit</button>
+                  ${note.pinned ? `<button onclick="unpinNote(${i})">Unpin</button>` : `<button onclick="pinNote(${i})">Pin</button>`}
+                </div>
+              </li>`;
+  }
+  addBox.innerHTML = html;
+}
+*/
+
+
+
+
