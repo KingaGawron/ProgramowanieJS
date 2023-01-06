@@ -21,6 +21,7 @@ body {
   padding: 15px 20px 20px;
   word-wrap: break-word;
   overflow:auto;
+  order:2;
 }
 .add-box,
 .icon {
@@ -28,6 +29,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  order:0!important;
 }
 .add-box .icon {
   height: 78px;
@@ -150,12 +152,12 @@ button{
     height: 30px;
     border-radius: 10px;
 }
-.colorNote{
+.colorNotes{
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.colorNote div{
+.colorNotes div{
   width: 20px;
   height: 20px;
   margin-bottom: 20px;
@@ -164,17 +166,26 @@ button{
   cursor:pointer;
 }
 .red{
-  background-color: red;
+  background-color: red!important;
 }
 .orange{
-  background-color: orange;
+  background-color: orange!important;
 }
 .purple{
-background-color: purple;
+background-color: purple!important;
 }
 .blue{
-background-color: blue;
+background-color: blue!important;
 }
 .green{
-background-color: green;
+background-color: green!important;
+}
+.active{
+  border: solid 3px;
+}
+.pinned{
+  order: 1 !important;;
+}
+.pinned .pinButton{
+background-color: lightslategray;
 }

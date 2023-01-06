@@ -7,6 +7,17 @@ const addBtn = document.querySelector("button");
 const title = document.querySelector("input");
 const desc = document.querySelector("textarea");
 
+const colorNotes = document.querySelectorAll(".colorNote");
+colorNotes.forEach(element => {
+  element.addEventListener("click",()=>{
+    document.querySelector(".active").classList.remove("active")
+    element.classList.add("active");
+
+
+  })
+});
+
+
 
 const months = [
   "January",
@@ -38,12 +49,13 @@ closeX.addEventListener("click", () => {
   popupTitle.innerText = "Add a new Note";
   popupBox.classList.remove("show");
 });
+
 function showNotes() {
   document.querySelectorAll(".note").forEach((note) => note.remove()); //remove duplicate
   notes.forEach((note, index) => {
-    let liTag = `<li class="note">
+    let liTag = `<li class="note ${note.color} ${note.pinned ? "pinned":""}">
                     <div class="details">
-                    <button onclick="pinNote(${index})">Pin</button>
+                    <button class="pinButton" onclick="pinNote(${index})">Pin</button>
                     <p>${note.title}</p>
                     <span>${note.description}</span>
                     </div>
@@ -79,6 +91,7 @@ addBtn.addEventListener("click", (e) => {
   e.preventDefault();
   let noteTitle = title.value;
   let noteDesc = desc.value;
+  let color = document.querySelector(".active").attributes.color.value
 
   if (noteTitle || noteDesc) {
     let dateObj = new Date();
@@ -88,64 +101,36 @@ addBtn.addEventListener("click", (e) => {
 
     let noteInfo = {
       title: noteTitle,
+      color:color,
       description: noteDesc,
-      date: `${month} ${day}, ${year}`,
+      date: `${month} ${day}, ${year}`
     };
     if (!isUpdate) {
       notes.push(noteInfo);
     } else {
       isUpdate = false;
-      notes[updateId] = noteInfo;
+      notes[updateId] = {...notes[updateId], ...noteInfo};
     }
-    localStorage.getItem("notes", JSON.stringify(notes));
+    localStorage.setItem("notes", JSON.stringify(notes));
     closeX.click();
     showNotes();
   }
 });
-/*
+showNotes()
 function pinNote(index) {
-  let note = notes[index];
-
-  note.pinned = !note.pinned;
-
-  let pinnedNotes = notes.filter(n => n.pinned);
-  let otherNotes = notes.filter(n => !n.pinned);
-  notes = [...pinnedNotes, ...otherNotes];
-  renderNotes();
-}
-/*let notesListElement = document.querySelector('.notes-list');
-  notesListElement.innerHTML = '';
-  notesListElement.innerHTML = '';
-
-  // Stworzyć nowe elementy HTML dla notatek i wstawić je do elementu HTML listy notatek
-  let html = '';
-  notes.forEach((note, index) => {
-    html += createNoteElement(note, index);
-  });
-  notesList
-
-function renderNotes() {
-  let html = "";
-  for (let i = 0; i < notes.length; i++) {
-    let note = notes[i];
-    html += `<li class="note">
-                <div class="details">
-                  <p>${note.title}</p>
-                  <span>${note.description}</span>
-                </div>
-                <div class="bottom-content">
-                  <span>${note.date}</span>
-                </div>
-                <div class="buttons">
-                  <button onclick="deleteNote(${i})">Delete</button>
-                  <button onclick="updateNote(${i},'${note.title}','${note.description}')">Edit</button>
-                  ${note.pinned ? `<button onclick="unpinNote(${i})">Unpin</button>` : `<button onclick="pinNote(${i})">Pin</button>`}
-                </div>
-              </li>`;
+  if(notes[index].pinned==true){
+    notes[index].pinned=false;
   }
-  addBox.innerHTML = html;
+  else{
+    notes[index].pinned=true;
+
+
+  }
+  localStorage.setItem("notes", JSON.stringify(notes));
+  showNotes();
 }
-*/
+
+
 
 
 
