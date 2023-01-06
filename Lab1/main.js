@@ -29,11 +29,11 @@ function Funkcja(){
         numValues.push(parseInt(el.value))
     };
     const dodawanie = numValues.reduce((sum, val) => sum + val)
-    wynikiPojemnik.innerHTML = `   
+    wynikiPojemnik.innerHTML = ` 
     Wynik dodawania: ${dodawanie}
-    Średnia:${dodawanie/numValues.length}
-    Wynik min:${Math.min(...numValues)}
-    Wynik max:${Math.max(...numValues)}
+    Średnia: ${dodawanie/numValues.length}
+    Wynik min: ${Math.min(...numValues)}
+    Wynik max: ${Math.max(...numValues)}
 `}
 let dodaj = document.getElementById("dodaj")
 dodaj.addEventListener('click', Dodaj);
