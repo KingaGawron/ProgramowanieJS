@@ -11,8 +11,8 @@ setInterval(function () {
   }
 }, 5000);
 
-  arrowRight.addEventListener("click",(e)=>{
-document.getElementById("radio" + counter).checked = true;
+arrowRight.addEventListener("click",(e)=>{
+  document.getElementById("radio" + counter).checked = true;
   counter++;
   if (counter > 4) {
     counter = 1;
