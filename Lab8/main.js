@@ -11,11 +11,8 @@ class Circle {
   constructor(xpos, ypos, radius, speed) {
     this.position_x = xpos;
     this.position_y = ypos;
-
     this.radius = radius;
-
     this.speed = speed;
-
     this.dx = 1 * this.speed;
     this.dy = 1 * this.speed;
   }
