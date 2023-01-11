@@ -1,15 +1,13 @@
- // pobieramy elementy HTML za pomocą ich identyfikatorów
  const ballElement = document.getElementById('ball');
  const holeElement = document.getElementById('hole');
 
- // ustawiamy położenie dziury losowo na ekranie
+ // położenie dziury losowo na ekranie
  holeElement.style.left = `${Math.random() * window.innerWidth}px`;
  holeElement.style.top = `${Math.random() * window.innerHeight}px`;
 
- // ustawiamy początkowe wartości prędkości kuli
+ // początkowe wartości prędkości kuli
 let velocityX = 0;
 let velocityY = 0;
-// rejestrujemy pętlę animacji za pomocą requestAnimationFrame
 function animate() {
     
     // aktualizujemy położenie kuli za pomocą prędkości
@@ -24,7 +22,7 @@ function animate() {
       ballElement.style.top = `${parseInt(ballElement.style.top) + velocityY}px`;
     }
   
-    // sprawdzamy, czy kula dotarła do granic ekranu
+    // Czy kula dotarła do granic ekranu
     // if (parseInt(ballElement.style.left) < 0 || parseInt(ballElement.style.left) > window.innerWidth - 50) {
     //   velocityX = -velocityX;
     // }
@@ -32,11 +30,10 @@ function animate() {
     //   velocityY = -velocityY;
     // }
   
-    // sprawdzamy, czy kula trafiła do dziury
+    // Czy kula trafiła do dziury
     if (isOverlapping(ballElement, holeElement)) {
       alert('Kula trafiła do dziury!');
     } else {
-    // rejestrujemy kolejne wywołanie pętli
 
       window.requestAnimationFrame(animate);
 
