@@ -33,7 +33,9 @@ let weather = {
     document.querySelector("#"+deleted).remove();
     
   }
-    document.querySelector("#weathers").innerHTML+=divTag
+    //document.querySelector("#weathers").innerHTML+=divTag
+    document.querySelector("#weathers").innerHTML = divTag + document.querySelector("#weathers").innerHTML
+
     this.weatherArray.push(name.toLowerCase());
 
     localStorage.setItem("weathers", JSON.stringify(this.weatherArray));
