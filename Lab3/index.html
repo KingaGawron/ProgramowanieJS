@@ -1,12 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drumkit-automat perkusyjny</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drumkit</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="audioFiles">
+        <audio src="./sounds/boom.wav" id="boom"></audio>
+        <audio src="./sounds/clap.wav" id="clap"></audio>
+        <audio src="./sounds/hihat.wav" id="hihat"></audio>
+        <audio src="./sounds/kick.wav" id="kick"></audio>
+        <audio src="./sounds/openhat.wav" id="openhat"></audio>
+        <audio src="./sounds/ride.wav" id="ride"></audio>
+        <audio src="./sounds/snare.wav" id="snare"></audio>
+        <audio src="./sounds/tink.wav" id="tink"></audio>
+        <audio src="./sounds/tom.wav" id="tom"></audio>
+      </div>
+      <div class="boxes">
+        <div class="box" id="b0">
+          <h4>q</h4>
+        </div>
+        <div class="box" id="b1">
+          <h4>w</h4>
+        </div>
+        <div class="box" id="b2">
+          <h4>e</h4>
+        </div>
+        <div class="box" id="b3">
+          <h4>r</h4>
+        </div>
+        <div class="box" id="b4">
+          <h4>t</h4>
+        </div>
+        <div class="box" id="b5">
+          <h4>a</h4>
+        </div>
+        <div class="box" id="b6">
+          <h4>s</h4>
+        </div>
+        <div class="box" id="b7">
+          <h4>d</h4>
+        </div>
+        <div class="box" id="b8">
+          <h4>f</h4>
+        </div>
+      </div>
+      <div class="controls">
+        <div>
+        <button class="recordBtn lighten">
+          <img src="./img/button.png" />
+      </button>
+        <button class="playBtn">
+          <img src="./img/play.png" />
+        </button>
+    </div>
+    <div>
+        <button class="recordBtn lighten">
+            <img src="./img/button.png" />
+        </button>
+        <button class="playBtn">
+            <img src="./img/play.png" />
+        </button>
+    </div>
+    <div>
+        <button class="recordBtn lighten">
+            <img src="./img/button.png" />
+        </button>
+        <button class="playBtn">
+            <img src="./img/play.png" />
+        </button>
+    </div>
+    <div>
+        <button class="recordBtn lighten">
+            <img src="./img/button.png" />
+        </button>
+        <button class="playBtn">
+            <img src="./img/play.png" />
+        </button>
+    </div>
+    </div>
+        <div class="controls row">
+          <div>
+            <button id="playAll">Play All</button>
+          </div>
+          <div class="recLength">
+            <input
+              type="range"
+              id="recordLenght"
+              min="0"
+              max="30"
+              value="3"
+            />
+            <label id="recordLenghtLabel" for="recordLenght">Recording time: 3 seconds</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
 </html>
