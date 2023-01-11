@@ -97,12 +97,11 @@ for (var i = 0; i < 10; i++) {
         all_circles[a].position_y
       ) -
         radius -
-        all_circles[a].radius <
-      0
+        all_circles[a].radius <0
     ) {
       random_x = randomNumber(radius, window_width - radius);
       random_y = randomNumber(radius, window_height - radius);
-      a = -1; // resetuj indeks, aby sprawdzić wszystkie kółka ponownie
+      a = -1; // resetuje indeks, aby sprawdzić wszystkie kółka ponownie
     }
   }
 
